@@ -22,6 +22,13 @@ let songs = [
     { songName: "Sia - Cheap Trills", filePath: "songs/2.mp3", coverPath: "covers/9.jpg" },
     { songName: "James Arthur - Say You Wont Let Go", filePath: "songs/4.mp3", coverPath: "covers/10.jpg" },
 ]
+
+songItems.forEach((element, i) => {
+    element.getElementsByTagName("img")[0].src = songs[i].coverPath;
+    element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
+})
+
+
 // Handle play/pause click
 masterPlay.addEventListener('click', () => {
     if (audioElement.paused || audioElement.currentTime <= 0) {
@@ -59,6 +66,7 @@ const makeAllPlays = () => {
 
     })
 }
+
 const makeAllPlaysg = () => {
     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
         element.classList.remove('fa-pause-circle');
@@ -67,6 +75,7 @@ const makeAllPlaysg = () => {
 
     })
 }
+
 
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
     element.addEventListener('click', (e) => {
@@ -104,6 +113,9 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
         }
     })
 })
+
+
+
 
 document.getElementById('next').addEventListener('click', () => {
     if (songIndex >= 9) {
