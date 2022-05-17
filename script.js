@@ -22,3 +22,21 @@ let songs = [
     { songName: "Sia - Cheap Trills", filePath: "songs/2.mp3", coverPath: "covers/9.jpg" },
     { songName: "James Arthur - Say You Wont Let Go", filePath: "songs/4.mp3", coverPath: "covers/10.jpg" },
 ]
+// Handle play/pause click
+masterPlay.addEventListener('click', () => {
+    if (audioElement.paused || audioElement.currentTime <= 0) {
+        audioElement.play();
+        masterPlay.classList.remove('fa-play-circle');
+        masterPlay.classList.add('fa-pause-circle');
+        gif.style.opacity = 1;
+        // `Harsh${id}`.style.opacity=1;
+        
+    }
+    else {
+        audioElement.pause();
+        masterPlay.classList.remove('fa-pause-circle');
+        masterPlay.classList.add('fa-play-circle');
+        gif.style.opacity = 0;
+        // `Harsh${id}`.style.opacity=0;
+    }
+})
