@@ -40,3 +40,23 @@ masterPlay.addEventListener('click', () => {
         // `Harsh${id}`.style.opacity=0;
     }
 })
+// Listen to Events
+audioElement.addEventListener('timeupdate', () => {
+    // Update Seekbar
+    progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
+    myProgressBar.value = progress;
+})
+
+myProgressBar.addEventListener('change', () => {
+    audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
+})
+
+const makeAllPlays = () => {
+    Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
+        element.classList.remove('fa-pause-circle');
+        element.classList.add('fa-play-circle');
+
+
+    })
+}
+
